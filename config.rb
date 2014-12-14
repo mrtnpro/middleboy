@@ -54,12 +54,11 @@ end
 # Build-specific configuration
 configure :build do
 
+  # For example, change the Compass output style for deployment
+  activate :minify_css, :inline => true
 
   # Minify Javascript
   activate :minify_javascript, :inline => true, :compressor => Uglifier.new(:mangle => false, :comments => :none)
-    
-  # For example, change the Compass output style for deployment
-  activate :minify_css, :inline => true
 
   # Minify HTML
   activate :minify_html, remove_comments: false
