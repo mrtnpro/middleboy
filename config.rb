@@ -35,6 +35,9 @@ activate :automatic_image_sizes
 # Activate gzip compression
 activate :gzip
 
+# Integrate Dotenv
+activate :dotenv
+
 # Define 404 page
 page "/404.html", :directory_index => false
 
@@ -42,10 +45,10 @@ page "/404.html", :directory_index => false
 activate :deploy do |deploy|
   deploy.build_before = true
   deploy.method       = :ftp
-  deploy.host         = "domain.tld"
-  deploy.path         = "./"
-  deploy.user         = "username"
-  deploy.password     = ENV["PASSWORD"]
+  deploy.host         = ENV["DEPLOY_HOSTNAME"]
+  deploy.path         = ENV["DEPLOY_PATH"]
+  deploy.user         = ENV["DEPLOY_USER"]
+  deploy.password     = ENV["DEPLOY_PASSWORD"]
 end
 
 # Build-specific configuration
