@@ -1,0 +1,15 @@
+@import "bourbon"
+
+// Global mixins
+// --------------------------------------------------
+
+// Shortcut for easy enabling/disabling of font-smoothing
+// @param : $on : toggles font-smoothing
+@mixin font-smoothing($value: on) 
+  @if $value == on 
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+  @else 
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto

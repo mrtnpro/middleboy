@@ -1,0 +1,18 @@
+// ==================================================
+// Base
+// ==================================================
+
+html, 
+body
+  height: 100%
+
+html 
+  @include box-sizing( border-box )
+
+*, 
+*:before, 
+*:after
+  @include box-sizing( inherit )
+
+body
+  @include font-smoothing( on )
