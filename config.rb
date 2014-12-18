@@ -48,7 +48,6 @@ activate :deploy do |deploy|
   deploy.host         = ENV["DEPLOY_HOSTNAME"]
   deploy.path         = ENV["DEPLOY_PATH"]
   deploy.user         = ENV["DEPLOY_USER"]
-  deploy.password     = ENV["DEPLOY_PASSWORD"]
 end
 
 # Build-specific configuration
