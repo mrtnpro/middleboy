@@ -44,7 +44,7 @@ page "/404.html", :directory_index => false
 # Deployment via middleman-deploy (usage: PASSWORD=password be middleman deploy)
 activate :deploy do |deploy|
   deploy.build_before = true
-  deploy.method       = :ftp
+  deploy.method       = :rsync
   deploy.host         = ENV["DEPLOY_HOSTNAME"]
   deploy.path         = ENV["DEPLOY_PATH"]
   deploy.user         = ENV["DEPLOY_USER"]
