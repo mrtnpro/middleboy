@@ -1,15 +1,19 @@
 # Async load script tag
 ((doc, script) ->
-  js = undefined
-  s = doc.getElementsByTagName(script)[0]
-  window.loadScript = ( url, id, callback = -> ) ->
+  window.loadScript = (src, id, callback) ->
     return if doc.getElementById(id)
-    js = doc.createElement(script)
-    js.async = true
-    js.src = url
-    id and (js.id = id)
-    s.addEventListener "load", ((e) -> callback null, e), false
-    s.parentNode.insertBefore js, s
+    s       = doc.createElement("script")
+    s.type  = "text/" + (src.type or "javascript")
+    s.src   = src.src or src
+    s.async = false
+    s.id    = id
+    s.onreadystatechange = s.onload = ->
+      state = s.readyState
+      if not callback.done and (not state or /loaded|complete/.test(state))
+        callback.done = true
+        callback()
+    # use body if available. more safe in IE
+    (doc.body or head).appendChild s
 ) document, "script"
 
 # Timing function shorthand
