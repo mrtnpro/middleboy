@@ -12,16 +12,8 @@ after_configuration do
   sprockets.append_path File.join root.to_s, "bower_components"
 end
 
-# Asset paths
-set :css_dir,     "stylesheets"
-set :js_dir,      "javascripts"
-set :images_dir,  "images"
-
-# Prevent asset concatenation in development
-set :debug_assets, true
-
-# Set url root
-set :url_root, build? ? "http://domain.tld/" : "http://0.0.0.0:4567/"
+# Integrate Dotenv
+activate :dotenv
 
 # Activate directory indexes for pretty urls
 activate :directory_indexes
@@ -35,8 +27,16 @@ activate :automatic_image_sizes
 # Activate gzip compression
 activate :gzip
 
-# Integrate Dotenv
-activate :dotenv
+# Set url root
+set :url_root, build? ? ENV["URL_PRODUCTION"] : ENV["URL_DEVELOPMENT"]
+
+# Asset paths
+set :css_dir,     "stylesheets"
+set :js_dir,      "javascripts"
+set :images_dir,  "images"
+
+# Prevent asset concatenation in development
+set :debug_assets, true
 
 # Define 404 page
 page "/404.html", :directory_index => false
