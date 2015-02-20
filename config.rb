@@ -41,13 +41,29 @@ activate :dotenv
 # Define 404 page
 page "/404.html", :directory_index => false
 
-# Deployment via middleman-deploy (usage: PASSWORD=password be middleman deploy)
-activate :deploy do |deploy|
-  deploy.build_before = true
-  deploy.method       = :rsync
-  deploy.host         = ENV["DEPLOY_HOSTNAME"]
-  deploy.path         = ENV["DEPLOY_PATH"]
-  deploy.user         = ENV["DEPLOY_USER"]
+# Deployment via middleman-deploy. 
+# Usage:
+# $ rake deploy:staging
+# $ rake deploy:production
+case ENV['TARGET'].to_s.downcase
+when "production"
+  activate :deploy do |deploy|
+    deploy.build_before = true
+    deploy.method       = :rsync
+    deploy.host         = ENV["PRODUCTION_HOSTNAME"]
+    deploy.path         = ENV["PRODUCTION_PATH"]
+    deploy.user         = ENV["PRODUCTION_USER"]
+    deploy.password     = ENV["PRODUCTION_PASSWORD"]
+  end
+when "staging"
+  activate :deploy do |deploy|
+    deploy.build_before = true
+    deploy.method       = :rsync
+    deploy.host         = ENV["STAGING_HOSTNAME"]
+    deploy.path         = ENV["STAGING_PATH"]
+    deploy.user         = ENV["STAGING_USER"]
+    deploy.password     = ENV["STAGING_PASSWORD"]
+  end
 end
 
 # Build-specific configuration
