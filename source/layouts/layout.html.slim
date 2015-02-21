@@ -96,7 +96,7 @@ doctype html
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       
-        ga('create', 'UA-XXXXXX-X', 'domain.tld');
-        /* ga('require', 'displayfeatures'); */
-        /* ga('set', 'anonymizeIp', true); */
+        ga('create', 'UA-XXXXXX-X', '#{url_root}');
+        ga('require', 'displayfeatures');
+        ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
