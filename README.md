@@ -31,7 +31,7 @@ Use this boilerplate with [Bundler](http://gembundler.com/), [Rbenv](https://git
 Clone **middleboy** into `~/.middleman`. You will need to create this directory if it doesn't exist.
 ```$ git clone git://github.com/crtvhd/middleboy.git ~/.middleman/middleboy```
 
-Initialize middleman on a new or existing folder `$ middleman init path_to_project --template=middleboy`
+Initialize middleman on a new or existing folder `$ middleman init path_to_project --template=middleboy`, then cd into the project directoy and run `bundle update; bower install` to finish setup.
 
 # Copyright
 
