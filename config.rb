@@ -2,7 +2,7 @@ require "slim"
 require "uglifier"
 
 # Prevent HTML minification in development
-::Slim::Engine.set_default_options :pretty => true
+::Slim::Engine.set_options pretty: true, format: :html
 
 # Minimum Sass number precision required by bootstrap-sass
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
