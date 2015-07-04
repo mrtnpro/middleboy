@@ -9,7 +9,7 @@ gem "bourbon", "~>4.0.2"
 
 gem "oj" # faster JS compiles
 gem "therubyracer" # faster JS compiles
-gem "middleman-minify-html", "~>3.4.0"
+gem "middleman-minify-html", "~>3.4.1"
 gem "middleman-favicon-maker", "~>3.7" # needs ImageMagick (http://www.imagemagick.org/)
 gem "middleman-search_engine_sitemap"
 gem "middleman-dotenv", "~> 1.0"
