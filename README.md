@@ -35,4 +35,4 @@ Initialize middleman on a new or existing folder `$ middleman init path_to_proje
 
 # Copyright
 
-Copyright (c) 2014 Martin Wessely (martin@wesse.ly)
+Copyright (c) 2014 Martin Wessely
